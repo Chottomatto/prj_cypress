@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Portal - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Welcome Back</h2>
+            <p>Please enter your account details</p>
+        </div>
+
+        <form id="loginForm" class="login-form">            
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required autocomplete="username">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password">
+            </div>
+
+            <button type="submit" class="login-btn">Confirm Account Credentials</button>
+        </form>
+    </div>
+
+    <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault(); // Prevents the page from redirecting away from GitHub Pages
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+         const renderBackendUrl = 'https://portal-backend-8wu7.onrender.com/login';    
+
+        try {
+            const response = await fetch(renderBackendUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await response.json();
+            
+            if (response.ok) {
+                alert('Success! ' + data.message);
+            } else {
+                alert('Server returned an error status: ' + response.status);
+            }
+        } catch (error) {
+            console.error('Connection failed:', error);
+            alert('Could not connect to the backend. Note: If your Render web service is on the free tier, it spins down after 15 minutes of inactivity. Please give it about 1 minute to wake up and try again!');
+        }
+    });
+    </script>
+</body>
+</html>

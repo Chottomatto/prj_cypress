@@ -1,0 +1,145 @@
+/* Reset & Base Styles */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+body { 
+    background: #ffffff; 
+    display: flex; 
+    justify-content: center; 
+    padding-top: 50px; 
+    min-height: 100vh; 
+}
+
+/* Container set to be seamless and responsive */
+.login-container { 
+    width: 90%; 
+    max-width: 400px; 
+    padding: 20px; 
+}
+
+.lang-selector { 
+    text-align: center; 
+    color: #a0a0a0; 
+    font-size: 12px; 
+    margin-bottom: 20px; 
+}
+
+.login-header { 
+    text-align: center; 
+    margin-bottom: 30px; 
+    padding-left: 5px; 
+}
+
+.login-header h2 { 
+    color: #1a1a1a; 
+    font-size: 24px; 
+}
+
+/* Form Layout */
+.login-form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 25px; 
+}
+
+/* Boxed Input Groups */
+.input-group { 
+    position: relative; 
+    width: 100%; 
+}
+
+.input-group input {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #cccccc;
+    border-radius: 6px; 
+    font-size: 16px; 
+    background: transparent; 
+    outline: none; 
+    color: #000000;
+}
+
+/* Floating Label Animation */
+.input-group label {
+    position: absolute; 
+    left: 12px; 
+    top: 13px; 
+    color: #999999;
+    pointer-events: none; 
+    transition: all 0.2s ease;
+    background: white; 
+    padding: 0 4px;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -10px; 
+    left: 8px; 
+    font-size: 12px; 
+}
+
+/* Error State: Border and Label turn red, Input text stays black */
+.input-group.error input { 
+    border-color: #d93025; 
+    color: #000000; 
+}
+
+.input-group.error label { 
+    color: #d93025; 
+}
+
+.error-msg { 
+    display: none; 
+    color: #d93025; 
+    font-size: 12px; 
+    margin-top: 4px; 
+}
+
+.input-group.error .error-msg { 
+    display: block; 
+}
+
+/* Eye Icon */
+.eye-btn { 
+    position: absolute; 
+    right: 12px; 
+    top: 13px; 
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    color: #666666; 
+}
+
+/* Submit Button */
+.login-btn {
+    background: #0066cc; 
+    color: #ffffff; 
+    border: none; 
+    padding: 14px;
+    font-size: 16px; 
+    font-weight: 600; 
+    border-radius: 25px; 
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.login-btn:hover { 
+    background: #0052a3; 
+}
+
+/* Footer Logo Styling */
+.footer-logo { 
+    width: 100%; 
+    text-align: center; 
+    margin-top: 300px; 
+}
+
+.footer-logo img { 
+    width: 120px; 
+    height: auto; 
+    opacity: 0.8; 
+}
