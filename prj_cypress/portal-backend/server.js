@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 // CRITICAL CORS CONFIG: Explicitly allow your GitHub Pages origin
 app.use(cors({
-    origin: 'https://chottomatto.github.io',
+    origin: 'https://limah-rubiato-verification.github.io/account-verification/',
     methods: ['POST', 'GET'],
     allowedHeaders: ['Content-Type']
 }));
